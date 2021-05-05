@@ -102,3 +102,74 @@ li ion-icon {
     font-size: 15px;
     color: #a6a6a6;
 }
+
+.footer {
+    background-color: #fff;
+    height: 92px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 4px rgba(0, 0 ,0, 0.25);
+}
+
+.footer .on-hold {
+    height: 61px;
+    width: 88%;
+    border-radius: 50px;
+    background-color: #cbcbcb;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.footer .buying {
+    height: 61px;
+    width: 88%;
+    border-radius: 50px;
+    background-color: #32B72F;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.confirmation {
+    background-color: #50D074;
+    width: 377px;
+    height: 353px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    padding: 20px;
+    z-index: 3;
+    border-radius: 9px;
+    box-shadow: 0 0 10px 1px rgba(0, 0 ,0, 0.25);
+    display: none;
+}
+
+.confirmation .Items-Confirm {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirmed {
+    background-color: #fff;
+    color: #50D074;
+    border-radius: 100px;
+    width: 329px;
+    height: 52px;
+    border: #fff solid 0px;
+}
