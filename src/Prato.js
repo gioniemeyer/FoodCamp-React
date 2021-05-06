@@ -4,7 +4,7 @@ export default function Prato(props) {
 
 const [classe, setClasse] = React.useState("");
 const [contador, setContador] = React.useState(1);
-const [display, setDisplay] = React.useState('qtdItem hidden');
+const [display, setDisplay] = React.useState('hidden');
 
 return (
     <li onClick={() => EscolherPrato(props)} class={classe}>
@@ -19,6 +19,7 @@ return (
     function EscolherPrato(props) {
         if(classe === "") {
             setClasse('chosen')
+            setContador(1);
             setDisplay('qtdItem')
         };
     }
@@ -26,9 +27,9 @@ return (
  
     function decrescer() {
         setContador(contador - 1);
-        if(contador === 0) {
+        if(contador - 1 === 0) {
             setClasse("")
-            setDisplay('qtdItem hidden')
+            setDisplay('hidden')
         };
     }
 }
