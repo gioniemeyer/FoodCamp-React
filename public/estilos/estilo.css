@@ -173,3 +173,22 @@ li ion-icon {
     height: 52px;
     border: #fff solid 0px;
 }
+
+.qtdItem {
+    position: absolute;
+    width: 48px;
+    height: 19px;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.verde {
+    color: #50D074;
+}
+
+.vermelho {
+    color: #cf2b2b;
+}

@@ -2,19 +2,33 @@ import React from 'react';
 
 export default function Prato(props) {
 
-    const [classe, setClasse] = React.useState("");
+const [classe, setClasse] = React.useState("");
+const [contador, setContador] = React.useState(1);
+const [display, setDisplay] = React.useState('qtdItem hidden');
 
 return (
-    <li class={classe} onClick={() => EscolherPrato(props)}>
+    <li onClick={() => EscolherPrato(props)} class={classe}>
         <img src={props.imgUrl} alt={props.nome} />
         <p><strong>{props.nome}</strong></p>
         <p class="description">{props.descricao}</p>
         <p><strong>R$ <span> {props.preco} </span> </strong></p>
+        <div class={display}> <span class="vermelho" onClick={decrescer}>-</span>{contador}<span class="verde" onClick={() => setContador(contador + 1)}>+</span> </div>
     </li>
 )
 
     function EscolherPrato(props) {
-        ({classe} === "") ? setClasse('chosen') : setClasse("");
-        alert(props.nome)
+        if(classe === "") {
+            setClasse('chosen')
+            setDisplay('qtdItem')
+        };
+    }
+
+ 
+    function decrescer() {
+        setContador(contador - 1);
+        if(contador === 0) {
+            setClasse("")
+            setDisplay('qtdItem hidden')
+        };
     }
 }
