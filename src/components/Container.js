@@ -2,11 +2,12 @@ import Pratos from "./Pratos";
 import Bebidas from "./Bebidas";
 import Sobremesas from "./Sobremesas";
 
-
-
 export default function Container(props) {
 
     const {arrPratos, setArrPratos} = props;
+    const {arrBebidas, setArrBebidas} = props;
+    const {arrSobremesas, setArrSobremesas} = props;
+
     
     return (
         <>
@@ -20,13 +21,13 @@ export default function Container(props) {
             <div class="items">
                 <h2>Agora, sua bebida</h2>
                 
-                <Bebidas />
+                <Bebidas arrBebidas = {arrBebidas} setArrBebidas={setArrBebidas} />
             </div>
 
             <div class="items">
                 <h2>Por fim, sua sobremesa</h2>
 
-                <Sobremesas />
+                <Sobremesas arrSobremesas = {arrSobremesas} setArrSobremesas={setArrSobremesas} />
             </div>
         </div>
     </>

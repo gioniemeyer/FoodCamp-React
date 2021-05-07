@@ -2,35 +2,46 @@ import React from 'react';
 
 export default function Bebida(props) {
 
-const [classe, setClasse] = React.useState("");
-const [contadorBebida, setContadorBebida] = React.useState(0);
-const [display, setDisplay] = React.useState('hidden');
-    
+    const { bebida, indice, setArrBebidas, arrBebidas } = props;
+
+    function EscolherPrato(indice) {
+        if(arrBebidas[indice].classe === "") {
+            arrBebidas[indice].classe = 'chosen';
+            arrBebidas[indice].contador = 1;
+            arrBebidas[indice].display = "qtdItem"
+            const novaArrBebidas = [ ...arrBebidas];
+            setArrBebidas(novaArrBebidas)
+        };
+    }
+
+    function acrescer(indice, evento) {
+        arrBebidas[indice].contador++;
+        const novaArrBebidas = [ ...arrBebidas];
+        setArrBebidas(novaArrBebidas)
+        evento.stopPropagation();
+    }
+ 
+    function decrescer(indice, evento) {
+        arrBebidas[indice].contador = arrBebidas[indice].contador - 1
+        if(arrBebidas[indice].contador < 1) {
+            console.log(arrBebidas[indice].contador);
+            arrBebidas[indice].classe = "";
+            arrBebidas[indice].display = "hidden";
+            console.log(arrBebidas[indice]);
+        }
+        const novaArrBebidas = [ ...arrBebidas];
+        setArrBebidas(novaArrBebidas)
+        evento.stopPropagation();
+    }
+
 return (
-    <li onClick={() => EscolherBebida(props)} className={classe}>
-        <img src={props.imgUrl} alt={props.nome} />
-        <p><strong>{props.nome}</strong></p>
-        <p className="description">{props.descricao}</p>
-        <p><strong>R$ <span> {props.preco} </span> </strong></p>
-        <div className={display}> <span class="vermelho" onClick={decrescer}>-</span>{contadorBebida}<span class="verde" onClick={() => setContadorBebida(contadorBebida + 1)}>+</span> </div>
+    <li className={bebida.classe} onClick={() => EscolherPrato(indice)}>
+        <img src={bebida.imgUrl} alt={bebida.nome} />
+        <p><strong>{bebida.nome}</strong></p>
+        <p className="description">{bebida.descricao}</p>
+        <p><strong>R$ <span> {bebida.preco} </span> </strong></p>
+        <div className={bebida.display}> <span className="vermelho" onClick={(evento) => decrescer(indice, evento)} >-</span>{bebida.contador}<span className="verde" onClick={(evento) => acrescer(indice, evento)}>+</span> </div>
     </li>
 )
-
-    function EscolherBebida(props) {
-        if(classe === "") {
-            setClasse('chosen')
-            setContadorBebida(1);
-            setDisplay('qtdItem')
-        };
-    }
-
-
-    function decrescer() {
-        setContadorBebida(contadorBebida - 1);
-        if(contadorBebida - 1 === 0) {
-            setClasse("")
-            setDisplay('hidden')
-        };
-    }
 
 }
