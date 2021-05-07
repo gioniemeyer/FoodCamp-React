@@ -4,14 +4,17 @@ import Sobremesas from "./Sobremesas";
 
 
 
-export default function Container() {
+export default function Container(props) {
+
+    const {arrPratos, setArrPratos} = props;
+    
     return (
         <>
             <div class="container">
 
             <div class="items">
                 <h2>Primeiro seu prato</h2>
-                <Pratos />
+                <Pratos arrPratos = {arrPratos} setArrPratos={setArrPratos} />
             </div>
 
             <div class="items">
