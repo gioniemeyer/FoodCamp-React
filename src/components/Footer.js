@@ -1,24 +1,36 @@
 import React from 'react';
 
-import Prato from './Prato';
-import Bebida from './Bebida'
-import Sobremesa from './Sobremesa'
+export default function Footer(props) {
 
-export default function Footer(contadorPrato, contadorSobremesa, contadorBebida) {
+    const {arrPratos, arrBebidas, arrSobremesas} = props
+    const [pratosSelecionados, setPratosSelecionados] = React.useState([])
+    const [bebidasSelecionados, setBebidasSelecionados] = React.useState([])
+    const [sobremesasSelecionados, setSobremesasSelecionados] = React.useState([])
 
-    const [classe, setClasse] = React.useState("");
- 
-    if(contadorPrato && contadorSobremesa && contadorBebida) {
+    arrPratos.forEach( (prato) => { 
+        if(prato.classe === "chosen") {pratosSelecionados.push(prato)};
+        return(pratosSelecionados);
+    } );
+    arrBebidas.forEach( (prato) => { 
+        if(prato.classe === "chosen") {bebidasSelecionados.push(prato)};
+        return(bebidasSelecionados);
+    } );
+    arrSobremesas.forEach( (prato) => { 
+        if(prato.classe === "chosen") {sobremesasSelecionados.push(prato)};
+        return(sobremesasSelecionados);
+    } );
+
+    if(pratosSelecionados.length && bebidasSelecionados.length && sobremesasSelecionados.length) {
         return (
             <div class="footer">
-                <button className="buying hidden"> 
+                <button className="buying"> 
                     <a className="wpp-pedido" href="https://wa.me/5521999999999?text=">
                         <p> <strong>Fechar pedido</strong> </p>
                     </a>
                 </button>
             </div>
         )    
-    } else {
+    }
         return (
             <div class="footer">
                 <button className="on-hold">
@@ -26,5 +38,4 @@ export default function Footer(contadorPrato, contadorSobremesa, contadorBebida)
                 </button>
             </div>
         )
-        }
 }

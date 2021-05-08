@@ -1,4 +1,7 @@
-export default function ConfirmacaoCompra() {
+export default function ConfirmacaoCompra(props) {
+
+    const {arrPratos, arrBebidas, arrSobremesas} = props
+
     return (
         <div class="confirmation hidden">
             <p><strong>Confirme seu pedido</strong></p>

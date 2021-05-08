@@ -73,9 +73,9 @@ export default function App() {
 
         <Container arrPratos = {arrPratos} setArrPratos={setArrPratos} arrBebidas = {arrBebidas} setArrBebidas={setArrBebidas} arrSobremesas = {arrSobremesas} setArrSobremesas={setArrSobremesas}/>
 
-        <Footer arrPratos = {arrPratos} arrBebidas = {arrBebidas} arrSobremesas = {arrSobremesas} />
+        <Footer arrPratos = {arrPratos} arrBebidas = {arrBebidas} arrSobremesas = {arrSobremesas}  />
 
-        <ConfirmacaoCompra />
+        <ConfirmacaoCompra  arrPratos = {arrPratos} arrBebidas = {arrBebidas} arrSobremesas = {arrSobremesas} />
     </>
     )
 
